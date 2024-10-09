@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Purple</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader" class="flex items-center justify-center fixed inset-0 bg-white z-50">
+        <span class="loading loading-infinity loading-lg"></span>
+      </div>
+    <div class="flex place-content-center mt-8 hidden" id="main-content">
+
+        <div class="mockup-code">
+            <pre data-prefix=">"><code>npm install TeamPurple</code></pre>
+            <pre data-prefix=">" class="text-warning"><code>installing...</code></pre>
+            <!-- <pre data-prefix=">" class="text-success"><code>Done!</code></pre> -->
+        </div>
+        
+    </div>
+    
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('preloader').style.display = 'none';
+            document.getElementById('main-content').classList.remove('hidden');
+    
+    
+            let dots = 0;
+            const installingText = document.querySelector(".text-warning code");
+            setInterval(() => {
+                dots = (dots + 1) % 4; 
+                installingText.textContent = 'installing' + '.'.repeat(dots);
+            }, 500); 
+        });
+    </script>
+      
+</body>
+
+</html>
